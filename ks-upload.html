@@ -41,7 +41,7 @@
                   formData.append('fileSize', file.size);
                   formData.append('chunkOffset', offset);
 
-                  fetch('upload.php', {
+                  fetch('ks-upload.php', {
                       method: 'POST',
                       body: formData
                   })
