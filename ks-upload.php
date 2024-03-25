@@ -13,7 +13,7 @@
    //    A Full Folder upload will create a subdirectory
 
    //-- SET TARGET DIR --
-   $targetDir = "/var/www/uploads";
+   $targetDir = "/var/www/uploads/submissions";
 
    $fileName = $_POST['fileName'];
    $fileSize = $_POST['fileSize'];
@@ -34,9 +34,13 @@
             exit;
         }
    }
-   
+
    $filePath = $targetDir . "/" . $full_path;
-   $fp = fopen($filePath, 'ab');
+   if ($chunkOffset == 0) {
+       $fp = fopen($filePath, 'w');
+   } else {
+       $fp = fopen($filePath, 'ab');
+   }
    if ($fp === false) {
        echo "Cannot open file for writing";
        exit;
@@ -57,4 +61,4 @@
 
    echo "Chunk at offset $chunkOffset uploaded successfully";
 
-?> 
+?>

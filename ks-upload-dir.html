@@ -79,7 +79,7 @@
         for (const file of files) {
             await uploadFile(file); 
             uploadedCount++;
-            uploadStatus.innerHTML += `${file.webkitRelativePath || file.name} uploaded successfully. (${uploadedCount}/${files.length})<br/>`;
+            uploadStatus.innerHTML = `${file.webkitRelativePath || file.name} uploaded successfully. (${uploadedCount}/${files.length})<br/>`;
         }
     }
 
